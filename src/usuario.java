@@ -24,7 +24,7 @@ public class usuario {
         }
 
         else {
-            System.out.println("Elije la clave que vas a usar");
+            System.out.println("Elige la clave que vas a usar");
             String clave = entrada.next();
 
             usuario nuevo = new usuario(nombre, clave);
