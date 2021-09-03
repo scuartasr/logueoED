@@ -18,13 +18,20 @@ public class usuario {
     public static void nuevoUsuario() {
         System.out.println("Bienvenido. Por favor, elije un seudónimo:");
         String nombre = entrada.next();
-        System.out.println("Elije la clave que vas a usar");
-        String clave = entrada.next();
 
-        usuario nuevo = new usuario(nombre, clave);
-        System.out.println("¡Se ha realizado el registro con éxito!");
-        System.out.println("Usted es el usuario con seudónimo " + nuevo.nombre + " y contraseña " + nuevo.clave);
-        System.out.println("\n");
+        if (usuarios.containsKey(nombre)) {
+            System.out.println("El nombre de usuario ya está registrado. Intente con otro diferente");
+        }
+
+        else {
+            System.out.println("Elije la clave que vas a usar");
+            String clave = entrada.next();
+
+            usuario nuevo = new usuario(nombre, clave);
+            System.out.println("¡Se ha realizado el registro con éxito!");
+            System.out.println("Usted es el usuario con seudónimo " + nuevo.nombre + " y contraseña " + nuevo.clave);
+            System.out.println("\n");
+        }
     }
 
     public static void logueo() {
@@ -35,8 +42,9 @@ public class usuario {
 
         if (!usuarios.containsKey(nombre)) {
             System.out.println("No existe un usuario con el seudónimo ingresado. Inténtelo de nuevo.");
+            System.out.println("\n");
         }
-        else if (usuarios.containsKey(nombre)) {
+        else {
             if (clave.equals(usuarios.get(nombre))) {
                 System.out.println("Usted se ha logueado correctamente.");
             }
