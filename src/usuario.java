@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class usuario {
@@ -23,7 +24,6 @@ public class usuario {
         usuario nuevo = new usuario(nombre, clave);
         System.out.println("¡Se ha realizado el registro con éxito!");
         System.out.println("Usted es el usuario con seudónimo " + nuevo.nombre + " y contraseña " + nuevo.clave);
-        System.out.println(usuarios);
         System.out.println("\n");
     }
 
@@ -47,6 +47,13 @@ public class usuario {
         System.out.println("\n");
     }
 
+    public static void baseDatos() {
+        for (Map.Entry<String, String> stringStringEntry : usuarios.entrySet()) {
+            System.out.println("Usuario: " + ((Map.Entry) stringStringEntry).getKey() + " --- " + "Contraseña: " + ((Map.Entry) stringStringEntry).getValue());
+        }
+        System.out.println("\n");
+    }
+
     static Scanner entrada = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -62,6 +69,7 @@ public class usuario {
             opcion = entrada.nextInt();
 
             switch (opcion) {
+                case 0 -> baseDatos();
                 case 1 -> nuevoUsuario();
                 case 2 -> logueo();
                 case 3 -> System.out.println("¡Hasta luego!");
