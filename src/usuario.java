@@ -16,7 +16,7 @@ public class usuario {
     }
 
     public static void nuevoUsuario() {
-        System.out.println("Bienvenido. Por favor, elije un seudónimo:");
+        System.out.println("Bienvenido. Por favor, elige un seudónimo:");
         String nombre = entrada.next();
 
         if (usuarios.containsKey(nombre)) {
